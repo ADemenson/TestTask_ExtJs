@@ -1,0 +1,14 @@
+.zero-quantity-cell {
+    background-color: #ffcccc !important;
+    color: #ff0000 !important;
+    font-weight: bold !important;
+}
+
+.product-window .x-form-item {
+    margin-bottom: 15px;
+}
+
+.product-window .x-form-display-field {
+    font-weight: bold;
+    color: #333;
+}
