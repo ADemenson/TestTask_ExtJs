@@ -1,7 +1,7 @@
 Ext.define('ProductApp.store.Products', {
     extend: 'Ext.data.Store',
     model: 'ProductApp.model.Product',
-    
+
     data: [
         { id: 1, name: 'Ноутбук Dell', description: 'Мощный игровой ноутбук', price: 1500.50, quantity: 5 },
         { id: 2, name: 'Мышь Logitech', description: 'Беспроводная компьютерная мышь', price: 45.99, quantity: 0 },

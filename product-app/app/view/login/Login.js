@@ -7,7 +7,7 @@ Ext.define('ProductApp.view.login.Login', {
         'Ext.form.field.Text'
     ],
 
-    title: 'Вход в систему',
+    title: 'Авторизация',
     closable: false,
     autoShow: true,
     modal: true,

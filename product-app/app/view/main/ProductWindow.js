@@ -1,21 +1,21 @@
 Ext.define('ProductApp.view.main.ProductWindow', {
     extend: 'Ext.window.Window',
     xtype: 'productwindow',
-    
+
     requires: [
         'Ext.form.Panel',
         'Ext.form.field.Text',
         'Ext.form.field.Number'
     ],
-    
+
     title: 'Карточка товара',
     width: 450,
     height: 350,
     modal: true,
     layout: 'fit',
     closeAction: 'hide',
-    
-    initComponent: function() {
+
+    initComponent: function () {
         this.items = [{
             xtype: 'form',
             reference: 'form',
@@ -51,7 +51,7 @@ Ext.define('ProductApp.view.main.ProductWindow', {
                 enforceMaxLength: true,
                 maxLength: 10,
                 listeners: {
-                    blur: function(field) {
+                    blur: function (field) {
                         var value = field.getValue();
                         if (value < 0) {
                             field.setValue(0);
@@ -69,7 +69,7 @@ Ext.define('ProductApp.view.main.ProductWindow', {
                 enforceMaxLength: true,
                 maxLength: 6,
                 listeners: {
-                    blur: function(field) {
+                    blur: function (field) {
                         var value = field.getValue();
                         if (value < 0) {
                             field.setValue(0);
@@ -79,48 +79,48 @@ Ext.define('ProductApp.view.main.ProductWindow', {
                 }
             }]
         }];
-        
+
         this.buttons = [{
-            text: 'Отмена',
-            handler: this.onCancel,
-            scope: this
-        }, {
             text: 'Сохранить',
             handler: this.onSave,
             scope: this
+        }, {
+            text: 'Отмена',
+            handler: this.onCancel,
+            scope: this
         }];
-        
+
         this.callParent();
     },
-    
-    loadRecord: function(record) {
+
+    loadRecord: function (record) {
         this.record = record;
         this.down('form').loadRecord(record);
         this.setTitle('Карточка товара: ' + record.get('name'));
     },
-    
-    onCancel: function() {
+
+    onCancel: function () {
         this.close();
     },
-    
-    onSave: function() {
+
+    onSave: function () {
         var form = this.down('form');
         var values = form.getValues();
         var record = this.record;
-        
+
         // Проверяем изменения
         var changes = {};
         var hasChanges = false;
-        
-        Ext.Object.each(values, function(key, value) {
+
+        Ext.Object.each(values, function (key, value) {
             if (record.get(key) != value) {
                 changes[key] = value;
                 hasChanges = true;
             }
         });
-        
+
         if (hasChanges) {
-            Ext.Msg.confirm('Сохранение', 'Имеются измененные данные. Сохранить изменения?', function(btn) {
+            Ext.Msg.confirm('Сохранение', 'Имеются измененные данные. Сохранить изменения?', function (btn) {
                 if (btn === 'yes') {
                     // Дополнительная валидация
                     if (values.price < 0) {
@@ -131,7 +131,7 @@ Ext.define('ProductApp.view.main.ProductWindow', {
                         Ext.Msg.alert('Ошибка', 'Количество не может быть отрицательным');
                         return;
                     }
-                    
+
                     record.set(changes);
                     record.commit();
                     this.close();

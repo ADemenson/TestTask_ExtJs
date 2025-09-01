@@ -1,7 +1,7 @@
 .zero-quantity-cell {
-    background-color: #ffcccc ;
-    color: #ff0000 ;
-    font-weight: bold ;
+    background-color: #ffcccc;
+    color: #ff0000;
+    font-weight: bold;
 }
 
 .product-window .x-form-item {
@@ -12,3 +12,22 @@
     font-weight: bold;
     color: #333;
 }
+
+.x-window-body-default {
+    border: none;
+    background-color: transparent;
+}
+
+.x-panel-body-default {
+    border: none;
+    background-color: transparent;
+}
+
+/* .x-btn-default-toolbar-small {
+    background-color: #0b9af3;
+}
+
+.x-btn-inner-default-toolbar-small {
+    color: #ffffff;
+} */
+
